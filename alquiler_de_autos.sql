@@ -1,0 +1,17 @@
+CREATE TABLE Marca (
+    MarcaId INT PRIMARY KEY AUTO_INCREMENT,
+    MarcaNombre VARCHAR(20) NOT NULL UNIQUE
+);
+
+CREATE TABLE Auto (
+    AutoId INT PRIMARY KEY AUTO_INCREMENT,
+    MarcaId INT NOT NULL,
+    AutoModelo VARCHAR(50) NOT NULL,
+    AutoCombustible VARCHAR(50) NOT NULL,
+    AutoKilometraje INT NOT NULL,
+    AutoPrecio NUMERIC(10,2) NOT NULL
+);
+
+ALTER TABLE Auto
+ADD FOREIGN KEY (MarcaId)
+REFERENCES Marca(MarcaId);
